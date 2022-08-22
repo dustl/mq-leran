@@ -1,0 +1,21 @@
+server:
+  port: 8881
+spring:
+  rabbitmq:
+    username: admin
+    password: admin
+    host: 127.0.0.1
+    port: 5672
+    # 路由队列失败回调
+    publisher-returns: true
+#    template:
+#      #为true时。指定消息在没有被队列接收时会通过回调returnedMessage()方法退回。
+#      mandatory: true
+#  发布消息成功到交换机后触发回调
+    publisher-confirm-type: correlated
+#    listener:
+#      simple:
+        #每次只推送一个消息,只有一个消费者，而且每次推送一个，保证消息消费顺序
+#        prefetch: 1
+        # 手动ack,性能比自动ack慢 10倍左右
+#        acknowledge-mode: manual
